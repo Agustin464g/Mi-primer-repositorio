@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Club Atlético Deportivo Barreal</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #e0e0e0, #ffffff);
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: #ff0000;
+      padding: 1rem 2rem;
+      border-bottom: 3px solid #fff;
+    }
+    header h1 {
+      font-family: 'Roboto Slab', serif;
+    }
+    nav a {
+      position: relative;
+      margin-right: 1rem;
+      padding: 0.5rem 0;
+      color: #fff;
+      transition: color 0.3s ease-in-out;
+    }
+    nav a:hover {
+      color: #ffcccc;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #fff;
+      transition: width 0.3s ease-in-out;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 p-6">
+  <header class="text-white flex justify-between items-center rounded-xl shadow-md mb-6">
+    <img src="logo 2.jpg" alt="Escudo Barreal FC" class="w-14 h-14 rounded-full shadow-md">
+    <h1 class="text-2xl font-bold tracking-wide">Club Atlético Deportivo Barreal</h1>
+    <nav>
+      <a href="historia.html">Historia</a>
+      <a href="Escuela.html">Escuela</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <section id="noticias" class="p-6 rounded-3xl shadow-xl bg-white">
+      <h2 class="text-3xl font-semibold mb-4 text-red-600">Noticias Recientes</h2>
+      <p>Mantente informado sobre las últimas actividades y logros de nuestro club.</p>
+    </section>
+
+    <section id="partidos" class="p-6 rounded-3xl shadow-xl bg-white">
+      <h2 class="text-3xl font-semibold mb-4 text-red-600">Próximos Partidos</h2>
+      <ul class="list-disc pl-5 text-black-600 space-y-2">
+        <li>Dep.Barreal vs. Rivales FC - 15 y 16 de marzo</li>
+      </ul>
+    </section>
+
+    <section id="Horarios y proximos encuentros" class="p-6 rounded-3xl shadow-xl bg-white">
+      <h2 class="text-3xl font-semibold mb-4 text-red-600">Entrenamientos y proximos encuentros</h2>
+      <ul class="list-disc pl-5 text-black-600 space-y-2">
+        <li>Lunes y Miércoles - 16:00 a 18:00 - Entrenamientos en el campo principal</li>
+        <li>Próximo Partido: Sábado 18/03 - 10:00 - Contra Club Deportivo Central</li>
+      </ul>
+    </section>
+
+    <section id="Horarios de entranamiento en el club" class="p-6 rounded-3xl shadow-xl bg-white">
+      <h2 class="text-3xl font-semibold mb-4 text-red-600">Horarios de entrenamientos</h2>
+      <ul class="list-disc pl-5 text-black-600 space-y-2">
+        <li> Martes - 19.00 a 20.30 hs - Fisico </li>
+        <li> Jueves - 19.00 a 20.30 hs- Practicas de Futbol </li>
+    </section>
+
+    <section id="contacto" class="p-6 rounded-3xl shadow-xl bg-white col-span-2">
+      <h2 class="text-3xl font-semibold mb-4 text-red-600">Contacto</h2>
+      <p>Para más información, contáctanos a través de nuestro número de WhatsApp, Facebook o correo electrónico.</p>
+      <div class="mt-4">
+        <a href="https://wa.me/" class="text-white bg-green-600 px-4 py-2 rounded-lg shadow hover:bg-green-700 mr-2">Enviar WhatsApp</a>
+        <a href="https://www.facebook.com/" class="text-white bg-blue-600 px-4 py-2 rounded-lg shadow hover:bg-blue-700">Visítanos en Facebook</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
