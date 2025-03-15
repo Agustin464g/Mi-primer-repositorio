@@ -3,102 +3,142 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Club Atlético Deportivo Barreal</title>
+  <title>Club Atlético Deportivo Barreal|Sitio Oficial</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css">
   <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #e0e0e0, #ffffff);
-    }
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: #ff0000;
-      padding: 1rem 2rem;
-      border-bottom: 3px solid #fff;
-    }
-    header h1 {
-      font-family: 'Roboto Slab', serif;
-    }
-    nav a {
-      position: relative;
-      margin-right: 1rem;
-      padding: 0.5rem 0;
-      color: #fff;
-      transition: color 0.3s ease-in-out;
-    }
-    nav a:hover {
-      color: #ffcccc;
-    }
-    nav a::after {
-      content: '';
-      position: absolute;
-      width: 0%;
-      height: 2px;
-      bottom: 0;
-      left: 0;
-      background-color: #fff;
-      transition: width 0.3s ease-in-out;
-    }
-    nav a:hover::after {
-      width: 100%;
-    }
-    .resolucion{
-    width: 99%;
-    text-align: center;
-  }
-  </style>
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/locales/es.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.10.5/dist/cdn.min.js" defer></script>
+
 </head>
-<body class="bg-gray-100 p-6">
+<body class="bg-gray-100 p-3 md:p-6" x-data="{ mobileMenuOpen: false, activeTab: 'entrenamientos' }">
   <header class="text-white flex justify-between items-center rounded-xl shadow-md mb-6">
-    <img src="logo 2.jpg" alt="Escudo Barreal FC" class="w-14 h-14 rounded-full shadow-md">
-    <h1 class="text-2xl font-bold tracking-wide">Club Atlético Deportivo Barreal</h1>
-    <nav>
+    <div class="flex items-center">
+      <img src="logo 2.jpg" alt="Escudo Barreal FC" class="w-10 h-10 md:w-14 md:h-14 rounded-full shadow-md">
+      <h1 class="text-lg md:text-2xl font-bold tracking-wide ml-2 md:ml-4">Club Atlético Deportivo Barreal</h1>
+    </div>
+    
+    <!-- Navegación de escritorio -->
+    <nav class="desktop-nav hidden md:block">
       <a href="historia.html">Historia</a>
       <a href="Escuela.html">Escuelita</a>
       <a href="#contacto">Contacto</a>
     </nav>
+    
+    <!-- Botón de menú móvil -->
+    <button class="mobile-menu p-2 focus:outline-none" @click="mobileMenuOpen = true">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+    
+    <!-- Overlay del menú móvil -->
+    <div class="mobile-menu-overlay" :class="{'open': mobileMenuOpen}" @click="mobileMenuOpen = false"></div>
+    
+    <!-- Contenido del menú móvil -->
+    <div class="mobile-menu-content" :class="{'open': mobileMenuOpen}">
+      <div class="flex justify-between items-center">
+        <h2 class="text-white text-xl font-bold">Menú</h2>
+        <button class="text-white focus:outline-none" @click="mobileMenuOpen = false">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <nav class="mobile-nav">
+        <a href="historia.html" @click="mobileMenuOpen = false">Historia</a>
+        <a href="Escuela.html" @click="mobileMenuOpen = false">Escuelita</a>
+        <a href="#contacto" @click="mobileMenuOpen = false">Contacto</a>
+      </nav>
+    </div>
   </header>
 
-  <main class="grid grid-cols-1 md:grid-cols-2 gap-8">
-    <section id="noticias" class="p-6 rounded-3xl shadow-xl bg-white">
-      <h2 class="text-3xl font-semibold mb-4 text-red-600">Noticias Recientes</h2>
-      <p>Mantente informado sobre las últimas actividades y logros de nuestro club.</p>
-    </section>
-
-    <section id="partidos" class="p-6 rounded-3xl shadow-xl bg-white">
-      <h2 class="text-3xl font-semibold mb-4 text-red-600">Próximos Partidos</h2>
-      <ul class="list-disc pl-5 text-black-600 space-y-2">
-        <li>Dep.Barreal vs. Rivales FC - 15 y 16 de marzo</li>
-      </ul>
-    </section>
-
-    <section id="Horarios y proximos encuentros" class="p-6 rounded-3xl shadow-xl bg-white">
-      <h2 class="text-3xl font-semibold mb-4 text-red-600">Entrenamientos y proximos encuentros</h2>
-      <ul class="list-disc pl-5 text-black-600 space-y-2">
-        <li>Lunes y Miércoles - 16:00 a 18:00 - Entrenamientos en el campo principal</li>
-        <li>Próximo Partido: Sábado 18/03 - 10:00 - Contra Club Deportivo Central</li>
-      </ul>
-    </section>
-
-    <section id="Horarios de entranamiento en el club" class="p-6 rounded-3xl shadow-xl bg-white">
-      <h2 class="text-3xl font-semibold mb-4 text-red-600">Horarios de entrenamientos</h2>
-      <ul class="list-disc pl-5 text-black-600 space-y-2">
-        <li> Martes - 19.00 a 20.30 hs - Fisico </li>
-        <li> Jueves - 19.00 a 20.30 hs- Practicas de Futbol </li>
-    </section>
-
-    <section id="contacto" class="p-6 rounded-3xl shadow-xl bg-white col-span-2">
-      <h2 class="text-3xl font-semibold mb-4 text-red-600">Contacto</h2>
-      <p>Para más información, contáctanos a través de nuestro número de WhatsApp, Facebook o correo electrónico.</p>
-      <div class="mt-4">
-        <a href="https://wa.me/" class="text-white bg-green-600 px-4 py-2 rounded-lg shadow hover:bg-green-700 mr-2">Enviar WhatsApp</a>
-        <a href="https://www.facebook.com/" class="text-white bg-blue-600 px-4 py-2 rounded-lg shadow hover:bg-blue-700">Visítanos en Facebook</a>
+  <main class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+    <!-- Primera fila: Noticias y Próximos Partidos -->
+    <section id="noticias" class="p-4 md:p-6 rounded-3xl shadow-xl bg-white">
+      <h2 class="text-2xl md:text-3xl font-semibold mb-4 text-red-600">Noticias Recientes</h2>
+      <div class="bg-gray-50 rounded-lg p-4 mb-4 shadow-sm">
+        <h3 class="font-bold text-lg">Inicio de temporada exitoso</h3>
+        <p class="text-gray-700 text-sm mt-2">Nuestros equipos comenzaron con el pie derecho la nueva temporada, con victorias en todas las categorías.</p>
+        <a href="#" class="text-red-600 text-sm font-medium mt-2 inline-block">Leer más →</a>
+      </div>
+      <div class="bg-gray-50 rounded-lg p-4 shadow-sm">
+        <h3 class="font-bold text-lg">Nueva indumentaria oficial</h3>
+        <p class="text-gray-700 text-sm mt-2">Presentamos los nuevos uniformes para la temporada 2023-2024. Disponibles para todas las categorías.</p>
+        <a href="#" class="text-red-600 text-sm font-medium mt-2 inline-block">Leer más →</a>
       </div>
     </section>
-  </main>
-</body>
-</html>
+
+    <section id="partidos" class="p-4 md:p-6 rounded-3xl shadow-xl bg-white">
+      <h2 class="text-2xl md:text-3xl font-semibold mb-4 text-red-600">Próximos Partidos</h2>
+      <div id="calendar" class="mb-4"></div>
+      <div>
+        <h3 class="text-xl font-semibold mb-2">Detalles de Partidos</h3>
+        <div class="table-responsive">
+          <table class="w-full border-collapse">
+            <thead>
+              <tr class="bg-red-100">
+                <th class="border border-red-300 px-2 md:px-4 py-2">Fecha</th>
+                <th class="border border-red-300 px-2 md:px-4 py-2">Rival</th>
+                <th class="border border-red-300 px-2 md:px-4 py-2">Lugar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="border border-red-300 px-2 md:px-4 py-2">15 de marzo</td>
+                <td class="border border-red-300 px-2 md:px-4 py-2">Rivales FC</td>
+                <td class="border border-red-300 px-2 md:px-4 py-2">Local</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="border border-red-300 px-2 md:px-4 py-2">22 de marzo</td>
+                <td class="border border-red-300 px-2 md:px-4 py-2">Deportivo Central</td>
+                <td class="border border-red-300 px-2 md:px-4 py-2">Visitante</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Segunda fila: Escuelita y Contacto -->
+    <section id="escuelita" class="p-4 md:p-6 rounded-3xl shadow-xl bg-white">
+      <div class="flex flex-wrap justify-between items-center mb-4">
+        <h2 class="text-2xl md:text-3xl font-semibold text-red-600">Escuelita</h2>
+        <span class="category-badge escuelita mt-2 md:mt-0">Formación Infantil</span>
+      </div>
+      
+      <!-- Pestañas para la sección de escuelita -->
+      <div class="mb-4 border-b border-gray-200">
+        <div class="flex flex-wrap">
+          <button @click="activeTab = 'entrenamientos'" :class="{'bg-yellow-500 text-white': activeTab === 'entrenamientos', 'bg-gray-100 text-gray-700': activeTab !== 'entrenamientos'}" class="py-2 px-3 md:px-4 text-sm font-medium rounded-t-lg mr-2 mb-2">
+            Entrenamientos
+          </button>
+          <button @click="activeTab = 'partidos'" :class="{'bg-yellow-500 text-white': activeTab === 'partidos', 'bg-gray-100 text-gray-700': activeTab !== 'partidos'}" class="py-2 px-3 md:px-4 text-sm font-medium rounded-t-lg mb-2">
+            Partidos
+          </button>
+        </div>
+        
+        <!-- Contenido de pestañas -->
+        <div class="py-4 tab-content" :class="{'active': activeTab === 'entrenamientos'}" id="tab-entrenamientos">
+          <h3 class="text-lg md:text-xl font-semibold mb-3 text-gray-800">Horarios de Entrenamientos</h3>
+          <div class="table-responsive">
+            <table class="w-full border-collapse">
+              <thead>
+                <tr class="bg-yellow-100">
+                  <th class="border border-yellow-300 px-2 md:px-3 py-2">Categoría</th>
+                  <th class="border border-yellow-300 px-2 md:px-3 py-2">Días</th>
+                  <th class="border border-yellow-300 px-2 md:px-3 py-2">Horario</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="border border-yellow-200 px-2 md:px-3 py-2 font-medium">2014-2015</td>
+                  <td class="border border-yellow-200 px-2 md:px-3 py-2">Lunes y Miércoles</td>
+                  <td class="border border-yellow-200 px-2 md:px-3 py-2">17:30 - 19:00</td>
+                </tr>
+                <tr class="bg-yellow-50">
+                  <td class="border border-yellow-200 px-2 md:px-3 py-2 font-medium">2016-2017</td>
+                  <td class="border border-yellow-200 px-2 md:px-3 py-2">Martes y Jueves</td>
+                  <td class="border border-yellow-200 px-2 md:px-3 py-2">17:00 - 18:30</td>
